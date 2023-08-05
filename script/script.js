@@ -48,6 +48,10 @@ function keyboardHandler(e){
         res.value += '/'
     }else if(e.key == '*'){
         res.value += '*'
+    }else if(e.key == ')'){
+        res.value += ')'
+    }else if(e.key == '('){
+        res.value += '('
     }
 
     if(e.key == 'Enter'){
@@ -55,8 +59,7 @@ function keyboardHandler(e){
     }
     
     if(e.key == "Backspace"){
-        let currentValue = res.value
-        res.value = currentValue.slice(0, -1)
+        deleteNum()
     }
 }
 
@@ -71,5 +74,10 @@ function calculate(value){
         res.value = answer;
     }
     
+}
+//delete letter by letter
+function deleteNum(){
+    let currentValue = res.value
+    res.value = currentValue.slice(0, -1)
 }
 

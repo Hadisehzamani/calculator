@@ -32,14 +32,14 @@ h1 {
 .calculator-btns {
     width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 50px 50px 50px 50px;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     padding: 40px 10px 0 10px;
 }
 
-input[type="button"] {
-    padding: 25px;
+input[type="button"], button {
+    padding: 20px 30px;
     border-radius: 50%;
     border: none;
     font-size: 18px;
@@ -47,19 +47,25 @@ input[type="button"] {
     background-color: #F6F4EB;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    display: flex;
+    justify-content: center;
 }
 
 input[type="text"] {
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     border-radius: 50px;
     border: none;
     padding: 10px;
+    height: 50px;
 }
 
-input[type="button"]:hover {
+input[type="button"]:hover,
+input[type="button"]:active {
+    outline: none;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 input[type="button"].clean {
     background-color: red;
 }
+

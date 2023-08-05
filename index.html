@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/style.css">
     <title>Document</title>
 </head>
@@ -15,6 +16,9 @@
         <div class="calculator-btns">
             <input type="text" name="result" id="result" placeholder="Result">
             <input type="button" value="C" onclick="result.value=''" class="clean">
+            <button class="delete" onclick="deleteNum()"><i class="fa-solid fa-delete-left" style="color: #000000;"></i></button>
+            <input type="button" value="(" onclick="liveScreen('&#40')">
+            <input type="button" value=")" onclick="liveScreen('&#41')">
             <input type="button" value="1" onclick="liveScreen(1)">
             <input type="button" value="2" onclick="liveScreen(2)">
             <input type="button" value="3" onclick="liveScreen(3)">
@@ -27,10 +31,22 @@
             <input type="button" value="8" onclick="liveScreen(8)">
             <input type="button" value="9" onclick="liveScreen(9)">
             <input type="button" value="x" onclick="liveScreen('*')">
-            <input type="button" value="/" onclick="liveScreen('/')">
+            <input type="button" value="." onclick="liveScreen('.')" class="dot">
             <input type="button" value="0" onclick="liveScreen(0)">
-            <input type="button" value="." onclick="liveScreen('.')">
-            <input type="button" value="=" onclick="calculate(result.value)">
+            
+            <input type="button" value="/" onclick="liveScreen('/')">
+            
+            
+            <input type="button" value="=" onclick="calculate(result.value)" class="equal">
+            
+            
+            
+            
+            
+            
+            
+            
+            
         </div>
     </div>
 
