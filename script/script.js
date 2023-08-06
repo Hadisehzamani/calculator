@@ -6,13 +6,13 @@ function liveScreen(enteredValue) {
     if(!res.value){
         res.value = '';
     }
-    res.value += enteredValue
+    appendToDisplay(enteredValue)
 }
 
 document.addEventListener('keydown', keyboardHandler)
 
 function keyboardHandler(e){
-    console.log(e);
+    //console.log(e);
     e.preventDefault()
     //handle numbers in keyboard
     if(e.key == '0'){
@@ -39,19 +39,19 @@ function keyboardHandler(e){
 
     //handle operators
     if(e.key == '+'){
-        res.value += '+';
+        appendToDisplay('+')
     }else if(e.key == '-'){
-        res.value += '-'
+        appendToDisplay('-')
     }else if(e.key == '.'){
-        res.value += '.'
+        appendToDisplay('.')
     }else if(e.key == '/'){
-        res.value += '/'
+        appendToDisplay('/')
     }else if(e.key == '*'){
-        res.value += '*'
+        appendToDisplay('*')
     }else if(e.key == ')'){
-        res.value += ')'
+        appendToDisplay(')')
     }else if(e.key == '('){
-        res.value += '('
+        appendToDisplay('(')
     }
 
     if(e.key == 'Enter'){
@@ -65,6 +65,7 @@ function keyboardHandler(e){
 
 function calculate(value){
     let answer = eval(value || null)
+    console.log(answer);
     if(isNaN(answer)){
         res.value = "Can't divide 0 with 0";
     setTimeout(() => {
@@ -81,3 +82,21 @@ function deleteNum(){
     res.value = currentValue.slice(0, -1)
 }
 
+//intercept from repeatition
+function hasRepeats (str) {
+    return /(.).*\1/.test(str);
+}
+
+function appendToDisplay(symbol) {
+    // Check if the last character is an operator symbol and the current symbol is also an operator
+    if ('+-*/.'.includes(res.value.slice(-1)) && '+-*/.'.includes(symbol)) {
+        // If true, replace the last character with the current symbol
+        res.value = res.value.slice(0, -1) + symbol;
+    }else {
+        res.value += symbol;
+    }
+    
+    if('+-*/'.includes(res.value.slice(0))){
+        res.value = res.value.slice(0, -1)
+    }
+}
