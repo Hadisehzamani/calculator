@@ -96,7 +96,7 @@ function appendToDisplay(symbol) {
         res.value += symbol;
     }
     
-    if('+-*/'.includes(res.value.slice(0))){
+    if('+*/'.includes(res.value.slice(0))){
         res.value = res.value.slice(0, -1)
     }
 }
